@@ -300,6 +300,21 @@
             color: #666;
             font-size: 0.9rem;
         }
+        @media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .skills-tags {
+    flex-direction: column;
+  }
+  /* Add these for section margins on mobile */
+  #resume,
+  #projects,
+  #contact {
+    margin-left: 1.5rem;
+    max-width: calc(100% - 1.5rem);
+  }
+}
     </style>
 </head>
 <body>
