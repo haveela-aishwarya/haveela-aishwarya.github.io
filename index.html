@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haveela Aishwarya Kondamudi | Business Analyst</title>
+    <style>
+        /* Modern Teal Color Scheme */
+        :root {
+            --primary: #008080;
+            --secondary: #4db6ac;
+            --dark: #00695c;
+            --light: #e0f2f1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Navigation */
+        .nav {
+            display: flex;
+        }
+        
+        .nav-button {
+            margin-left: 15px;
+            padding: 10px 20px;
+            background: none;
+            border: 1px solid var(--primary);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-button:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .nav-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255,255,255,0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%, -50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .nav-button:focus:not(:active)::after {
+            animation: ripple 0.6s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        /* Sections */
+        section {
+           min-height: auto;         /* Removes forced full-screen height */
+           padding: 40px 20px;       /* Reduces vertical padding */
+           border-bottom: 1px solid #eee;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 30px; /* Lower than current */
+        }
+
+        .resume-item {
+        margin-bottom: 20px; /* Reduce space between jobs */
+        }
+
+       p {
+        margin-bottom: 10px;
+          }
+
+        
+        /* Home Section */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .profile-image-container {
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .intro-container {
+            max-width: 700px;
+        }
+        
+        .typewriter-container {
+            min-height: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 10px 0;
+            color: #666;
+        }
+        
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skill-tag {
+            padding: 8px 16px;
+            background: var(--light);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark);
+            transition: all 0.2s;
+        }
+        
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Resume Section */
+        .resume-item {
+            margin-bottom: 30px;
+        }
+        
+        .resume-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .resume-highlights {
+            margin-left: 20px;
+        }
+        
+        .resume-highlights li {
+            margin-bottom: 8px;
+        }
+        
+        .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 10px; /* Reduced from default */
+}
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 10px; /* Reduced from default */
+}
+
+.project-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    transition: all 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.project-tag {
+    padding: 4px 10px;
+    background: var(--light);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--dark);
+}       
+    
+        /* Contact Section */
+        #contact {
+            min-height: auto;
+            padding: 60px 20px 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+        }
+        
+        .contact-link {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <button class="nav-button" onclick="scrollToSection('home')">Home</button>
+            <button class="nav-button" onclick="scrollToSection('resume')">Resume</button>
+            <button class="nav-button" onclick="scrollToSection('projects')">Projects</button>
+            <button class="nav-button" onclick="scrollToSection('contact')">Contact</button>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <div class="intro-container">
+            <h2>Hello, I'm <span style="font-weight: 700; color: var(--dark);">Haveela Aishwarya Kondamudi</span></h2>
+            <div class="typewriter-container" id="typewriter"></div>
+            <div class="location">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Hartford, Connecticut, United States
+            </div>
+            <p>
+                As a Master's graduate in Business Analytics with a strong foundation in Commerce, I am eager to launch my career as a Business Analyst. 
+                My academic journey, coupled with hands-on experience through internships and projects, has equipped me with the analytical acumen to solve complex problems.
+            </p>
+            
+            <div class="skills-tags">
+                <div class="skill-tag">Business Analytics</div>
+                <div class="skill-tag">Data Visualization</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">Market Analysis</div>
+                <div class="skill-tag">Power BI</div>
+                <div class="skill-tag">Sustainable Development</div>
+                <div class="skill-tag">Machine Learning</div>
+            </div>
+        </div>
+        
+        <div class="profile-image-container">
+            <img src="images/profile.jpg" alt="Haveela Aishwarya Kondamudi" class="profile-image">
+        </div>
+    </section>
+    
+    <section id="resume">
+        <h1>Education & Experience</h1>
+        
+        <div class="resume-item">
+            <h2>University of New Haven</h2>
+            <div class="resume-date">Master of Science in Business Analytics | Aug 2023 - May 2025</div>
+        </div>
+        
+        <div class="resume-item">
+            <h2>Kasturba Degree & PG College - Osmania University</h2>
+            <div class="resume-date">Bachelor of Commerce | Jun 2019 - May 2022</div>
+        </div>
+        
+        <div class="resume-item">
+            <h2>St. Ann's High School Secunderabad</h2>
+            <div class="resume-date">Secondary School Education | ICSE </div>
+        </div>
+
+        <div class="resume-item">
+            <h2>Tata Projects</h2>
+            <div class="resume-date">Intern | May 2022 - Jun 2022</div>
+            <p>Gained practical experience in business operations and analytics</p>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <h1>Featured Projects</h1>
+        
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Walmart Sales Playbook</h3>
+                <p>Capstone project analyzing Walmart's sales performance to improve forecasting accuracy and optimize inventory management.</p>
+                <div class="project-tags">
+                    <div class="project-tag">Data Analysis</div>
+                    <div class="project-tag">Machine Learning</div>
+                    <div class="project-tag">Retail Analytics</div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3>Fleetcor Account Management</h3>
+                <p>Database Management project focused on credit risk analysis using GMM models and Power BI dashboards.</p>
+                <div class="project-tags">
+                    <div class="project-tag">SQL</div>
+                    <div class="project-tag">Power BI</div>
+                    <div class="project-tag">Risk Management</div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3>Sustainability in Supply Chain</h3>
+                <p>Developed data-driven solutions for sustainable supply chain management for leading brands.</p>
+                <div class="project-tags">
+                    <div class="project-tag">Sustainability</div>
+                    <div class="project-tag">Supply Chain</div>
+                    <div class="project-tag">Data Modeling</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h1>Get In Touch</h1>
+        <p>Connect with me for opportunities in business analytics and sustainable development:</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <a href="mailto:haveela.aishwarya@gmail.com" class="contact-link">haveela.aishwarya@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <a href="https://linkedin.com/in/haveela-aishwarya" target="_blank" class="contact-link">linkedin.com/in/haveela-aishwarya</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p> <center> © 2025 Haveela Aishwarya Kondamudi. All rights reserved.</center></p>
+    </footer>
+    
+    <script>
+        // Typewriter effect
+        const typewriterText = [
+            "Business Analytics Graduate", 
+            "Sustainable Development Advocate", 
+            "Multifaceted Data Analyst",
+            "Market Research Specialist",
+            "Data Storyteller"
+        ];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+        
+        (function type() {
+            if (count === typewriterText.length) {
+                count = 0;
+            }
+            currentText = typewriterText[count];
+            letter = currentText.slice(0, ++index);
+            
+            document.getElementById("typewriter").textContent = letter;
+            if (letter.length === currentText.length) {
+                setTimeout(() => {
+                    count++;
+                    index = 0;
+                    setTimeout(type, 500);
+                }, 2000);
+            } else {
+                setTimeout(type, 100);
+            }
+        })();
+        
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
